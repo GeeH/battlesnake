@@ -25,7 +25,7 @@ class MoveHandler implements RequestHandlerInterface
 
         $postedData = json_decode((string)$request->getBody(), true);
 
-        $move = $this->figureOutMove($postedData['you']['shout'], $postedData['you']['body']);
+        $move = $this->figureOutMove($postedData);
 
         $response = new Response();
         $response->getBody()->write(
@@ -37,48 +37,58 @@ class MoveHandler implements RequestHandlerInterface
         return $response;
     }
 
-    public function figureOutMove(string $lastMove, array $snakePositions): string
+    public function figureOutMove(array $postedData, string $proposedMove = null): string
     {
-        $head = $snakePositions[0];
-
-        if ($lastMove === '' || $lastMove === 'left') {
-            $head['y']++;
-            foreach ($snakePositions as $position) {
-                if ($position === $head) {
-                    return $lastMove;
-                }
-            }
-            return 'up';
+        if(empty($proposedMove)) {
+            $proposedMove = $postedData['you']['shout'] !== '' ? $postedData['you']['shout'] : 'up';
         }
 
-        if ($lastMove === 'up') {
-            $head['x']++;
-            foreach ($snakePositions as $position) {
-                if ($position === $head) {
-                    return $lastMove;
-                }
-            }
-            return 'right';
+        if ($this->canMoveToProposedSpace($proposedMove, $postedData)) {
+            return $proposedMove;
         }
 
-        if ($lastMove === 'right') {
-            $head['y']--;
-            foreach ($snakePositions as $position) {
-                if ($position === $head) {
-                    return $lastMove;
-                }
-            }
-            return 'down';
+        $proposedMove = match($proposedMove) {
+            'up' => 'right',
+            'right' => 'down',
+            'down' => 'left',
+            'left' => 'up',
+        };
+
+        return $this->figureOutMove($postedData, $proposedMove);
+    }
+
+    private function canMoveToProposedSpace(string $proposedMove, array $postedData): bool
+    {
+        $snakesHead = $postedData['you']['head'];
+        if ($proposedMove === 'up') {
+            $snakesHead['y']++;
+        }
+        if ($proposedMove === 'right') {
+            $snakesHead['x']++;
+        }
+        if ($proposedMove === 'down') {
+            $snakesHead['y']--;
+        }
+        if ($proposedMove === 'left') {
+            $snakesHead['x']--;
         }
 
-        if ($lastMove === 'down') {
-            $head['x']--;
-            foreach ($snakePositions as $position) {
-                if ($position === $head) {
-                    return $lastMove;
+        if ($snakesHead['x'] < 0 || $snakesHead['y'] < 0) {
+            return false;
+        }
+
+        if ($snakesHead['x'] === $postedData['board']['width'] || $snakesHead['y'] === $postedData['board']['height']) {
+            return false;
+        }
+
+        foreach ($postedData['board']['snakes'] as $snake) {
+            foreach ($snake['body'] as $body) {
+                if($snakesHead === $body) {
+                    return false;
                 }
             }
-            return 'left';
         }
+
+        return true;
     }
 }

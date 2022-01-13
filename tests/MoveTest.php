@@ -1,35 +1,23 @@
 <?php
+// craigsimps: changed scene
 
-test('figure out move figures out moves ', function () {
-    $logger = new \Monolog\Logger('test');
-    $moveHandler = new \App\Handler\MoveHandler($logger);
+test(
+    'figures out the right way for a 🐍 to move',
+    function ($postedData, $expectedResult) {
+        $logger = new \Monolog\Logger('test');
+        $moveHandler = new \App\Handler\MoveHandler($logger);
 
-    $lastMove = 'down';
-    $positions = <<<JSON
-    [
-                        {
-                            "x": 6,
-                            "y": 5
-                        },
-                        {
-                            "x": 6,
-                            "y": 6
-                        },
-                        {
-                            "x": 5,
-                            "y": 6
-                        },
-                        {
-                            "x": 5,
-                            "y": 5
-                        },
-                        {
-                            "x": 5,
-                            "y": 5
-                        }
-                    ]
-    JSON;
-    $snakePositions = json_decode($positions, true);
+        $this->assertSame($expectedResult, $moveHandler->figureOutMove($postedData));
+    }
+)->with([
+            [
+                json_decode(\file_get_contents(__DIR__ . '/assets/board-1.json'), true),
+                'right',
+            ],
+            [
+                json_decode(file_get_contents(__DIR__ . '/assets/board-2.json'), true),
+                'down',
+            ]
 
-    $this->assertSame('down', $moveHandler->figureOutMove($lastMove, $snakePositions));
-});
+
+        ]);

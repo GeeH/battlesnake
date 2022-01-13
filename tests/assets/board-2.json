@@ -1,0 +1,418 @@
+{
+    "game": {
+        "id": "5c287ef5-360b-4299-9703-8c93ff2d390e",
+        "ruleset": {
+            "name": "standard",
+            "version": "v1.0.23",
+            "settings": {
+                "foodSpawnChance": 0,
+                "minimumFood": 0,
+                "hazardDamagePerTurn": 0,
+                "royale": {
+                    "shrinkEveryNTurns": 0
+                },
+                "squad": {
+                    "allowBodyCollisions": false,
+                    "sharedElimination": false,
+                    "sharedHealth": false,
+                    "sharedLength": false
+                }
+            }
+        },
+        "timeout": 500,
+        "source": "challenge"
+    },
+    "turn": 5,
+    "board": {
+        "height": 11,
+        "width": 11,
+        "snakes": [
+            {
+                "id": "gs_4kTFRVMpgWrQCb3VY3h4R44H",
+                "name": "follow-geehlive-on-twitch-v3-real",
+                "latency": "169",
+                "health": 95,
+                "body": [
+                    {
+                        "x": 10,
+                        "y": 5
+                    },
+                    {
+                        "x": 9,
+                        "y": 5
+                    },
+                    {
+                        "x": 8,
+                        "y": 5
+                    },
+                    {
+                        "x": 7,
+                        "y": 5
+                    },
+                    {
+                        "x": 6,
+                        "y": 5
+                    }
+                ],
+                "head": {
+                    "x": 10,
+                    "y": 5
+                },
+                "length": 5,
+                "shout": "right",
+                "squad": "",
+                "customizations": {
+                    "color": "#888888",
+                    "head": "default",
+                    "tail": "default"
+                }
+            },
+            {
+                "id": "gs_XtJFhrFjpfC3cSDMkKvXgYgG",
+                "name": "Latifah",
+                "latency": "1",
+                "health": 95,
+                "body": [
+                    {
+                        "x": 5,
+                        "y": 9
+                    },
+                    {
+                        "x": 4,
+                        "y": 9
+                    },
+                    {
+                        "x": 3,
+                        "y": 9
+                    },
+                    {
+                        "x": 2,
+                        "y": 9
+                    },
+                    {
+                        "x": 1,
+                        "y": 9
+                    },
+                    {
+                        "x": 1,
+                        "y": 8
+                    },
+                    {
+                        "x": 1,
+                        "y": 7
+                    },
+                    {
+                        "x": 1,
+                        "y": 6
+                    },
+                    {
+                        "x": 2,
+                        "y": 6
+                    },
+                    {
+                        "x": 3,
+                        "y": 6
+                    },
+                    {
+                        "x": 4,
+                        "y": 6
+                    },
+                    {
+                        "x": 5,
+                        "y": 6
+                    },
+                    {
+                        "x": 5,
+                        "y": 7
+                    },
+                    {
+                        "x": 5,
+                        "y": 8
+                    }
+                ],
+                "head": {
+                    "x": 5,
+                    "y": 9
+                },
+                "length": 14,
+                "shout": "",
+                "squad": "",
+                "customizations": {
+                    "color": "#e80978",
+                    "head": "default",
+                    "tail": "default"
+                }
+            },
+            {
+                "id": "gs_FyYk8kcqTwHmyK3BhVvttfbT",
+                "name": "Kim",
+                "latency": "1",
+                "health": 95,
+                "body": [
+                    {
+                        "x": 7,
+                        "y": 1
+                    },
+                    {
+                        "x": 8,
+                        "y": 1
+                    },
+                    {
+                        "x": 9,
+                        "y": 1
+                    },
+                    {
+                        "x": 9,
+                        "y": 2
+                    },
+                    {
+                        "x": 9,
+                        "y": 3
+                    },
+                    {
+                        "x": 9,
+                        "y": 4
+                    },
+                    {
+                        "x": 8,
+                        "y": 4
+                    },
+                    {
+                        "x": 7,
+                        "y": 4
+                    },
+                    {
+                        "x": 6,
+                        "y": 4
+                    },
+                    {
+                        "x": 5,
+                        "y": 4
+                    },
+                    {
+                        "x": 5,
+                        "y": 3
+                    },
+                    {
+                        "x": 5,
+                        "y": 2
+                    },
+                    {
+                        "x": 5,
+                        "y": 1
+                    },
+                    {
+                        "x": 6,
+                        "y": 1
+                    }
+                ],
+                "head": {
+                    "x": 7,
+                    "y": 1
+                },
+                "length": 14,
+                "shout": "",
+                "squad": "",
+                "customizations": {
+                    "color": "#e80978",
+                    "head": "default",
+                    "tail": "default"
+                }
+            },
+            {
+                "id": "gs_VpfDkydQ3MwqD39R8PFMyCYP",
+                "name": "Missy",
+                "latency": "1",
+                "health": 95,
+                "body": [
+                    {
+                        "x": 0,
+                        "y": 2
+                    },
+                    {
+                        "x": 0,
+                        "y": 3
+                    },
+                    {
+                        "x": 0,
+                        "y": 4
+                    },
+                    {
+                        "x": 1,
+                        "y": 4
+                    },
+                    {
+                        "x": 2,
+                        "y": 4
+                    },
+                    {
+                        "x": 3,
+                        "y": 4
+                    },
+                    {
+                        "x": 3,
+                        "y": 3
+                    },
+                    {
+                        "x": 3,
+                        "y": 2
+                    },
+                    {
+                        "x": 3,
+                        "y": 1
+                    },
+                    {
+                        "x": 3,
+                        "y": 0
+                    },
+                    {
+                        "x": 2,
+                        "y": 0
+                    },
+                    {
+                        "x": 1,
+                        "y": 0
+                    },
+                    {
+                        "x": 0,
+                        "y": 0
+                    },
+                    {
+                        "x": 0,
+                        "y": 1
+                    }
+                ],
+                "head": {
+                    "x": 0,
+                    "y": 2
+                },
+                "length": 14,
+                "shout": "",
+                "squad": "",
+                "customizations": {
+                    "color": "#e80978",
+                    "head": "default",
+                    "tail": "default"
+                }
+            },
+            {
+                "id": "gs_KMFvBQRxBBRRhB4T64whfpj4",
+                "name": "Eve",
+                "latency": "1",
+                "health": 95,
+                "body": [
+                    {
+                        "x": 8,
+                        "y": 10
+                    },
+                    {
+                        "x": 9,
+                        "y": 10
+                    },
+                    {
+                        "x": 10,
+                        "y": 10
+                    },
+                    {
+                        "x": 10,
+                        "y": 9
+                    },
+                    {
+                        "x": 10,
+                        "y": 8
+                    },
+                    {
+                        "x": 10,
+                        "y": 7
+                    },
+                    {
+                        "x": 10,
+                        "y": 6
+                    },
+                    {
+                        "x": 9,
+                        "y": 6
+                    },
+                    {
+                        "x": 8,
+                        "y": 6
+                    },
+                    {
+                        "x": 7,
+                        "y": 6
+                    },
+                    {
+                        "x": 7,
+                        "y": 7
+                    },
+                    {
+                        "x": 7,
+                        "y": 8
+                    },
+                    {
+                        "x": 7,
+                        "y": 9
+                    },
+                    {
+                        "x": 7,
+                        "y": 10
+                    }
+                ],
+                "head": {
+                    "x": 8,
+                    "y": 10
+                },
+                "length": 14,
+                "shout": "",
+                "squad": "",
+                "customizations": {
+                    "color": "#e80978",
+                    "head": "default",
+                    "tail": "default"
+                }
+            }
+        ],
+        "food": [],
+        "hazards": []
+    },
+    "you": {
+        "id": "gs_4kTFRVMpgWrQCb3VY3h4R44H",
+        "name": "follow-geehlive-on-twitch-v3-real",
+        "latency": "169",
+        "health": 95,
+        "body": [
+            {
+                "x": 10,
+                "y": 5
+            },
+            {
+                "x": 9,
+                "y": 5
+            },
+            {
+                "x": 8,
+                "y": 5
+            },
+            {
+                "x": 7,
+                "y": 5
+            },
+            {
+                "x": 6,
+                "y": 5
+            }
+        ],
+        "head": {
+            "x": 10,
+            "y": 5
+        },
+        "length": 5,
+        "shout": "right",
+        "squad": "",
+        "customizations": {
+            "color": "#888888",
+            "head": "default",
+            "tail": "default"
+        }
+    }
+}
