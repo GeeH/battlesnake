@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Handler;
 
+use App\Factory\MoveFactory;
+use App\Model\Move;
+use App\Model\Point;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Server\RequestHandlerInterface;
@@ -22,73 +25,102 @@ class MoveHandler implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $this->logger->info('Move handler dispatched');
+        $move = MoveFactory::create($request->getBody()->getContents());
 
-        $postedData = json_decode((string)$request->getBody(), true);
-
-        $move = $this->figureOutMove($postedData);
+        $instruction = $this->figureOutMove($move);
 
         $response = new Response();
         $response->getBody()->write(
             json_encode([
-                            'move' => $move,
-                            'shout' => $move,
-                        ])
+                'move' => $instruction,
+                'shout' => $instruction,
+            ])
         );
         return $response;
     }
 
-    public function figureOutMove(array $postedData, string $proposedMove = null): string
+    /**
+     * @todo this can infinite loop - make it so it can't
+     */
+    public function figureOutMove(Move $move, string $proposedInstruction = null): string
     {
-        if(empty($proposedMove)) {
-            $proposedMove = $postedData['you']['shout'] !== '' ? $postedData['you']['shout'] : 'up';
+        if (empty($move->board->food)) {
+            $proposedInstruction ??= $move->you->shout ?: 'up';
+
+            if ($this->canMoveToProposedSpace($proposedInstruction, $move)) {
+                return $proposedInstruction;
+            }
+
+            $proposedInstruction = match ($proposedInstruction) {
+                'up' => 'right',
+                'right' => 'down',
+                'down' => 'left',
+                'left' => 'up',
+            };
+
+            return $this->figureOutMove($move, $proposedInstruction);
         }
 
-        if ($this->canMoveToProposedSpace($proposedMove, $postedData)) {
-            return $proposedMove;
-        }
-
-        $proposedMove = match($proposedMove) {
-            'up' => 'right',
-            'right' => 'down',
-            'down' => 'left',
-            'left' => 'up',
-        };
-
-        return $this->figureOutMove($postedData, $proposedMove);
+        return $this->figureOutMoveToFood($move);
     }
 
-    private function canMoveToProposedSpace(string $proposedMove, array $postedData): bool
+    private function canMoveToProposedSpace(string $proposedMove, Move $move): bool
     {
-        $snakesHead = $postedData['you']['head'];
+        // felisbinarius: $snakesHead = new Point( Match...., Match ...)
         if ($proposedMove === 'up') {
-            $snakesHead['y']++;
+            $snakesHead = new Point($move->you->head->x, $move->you->head->y + 1);
         }
+
         if ($proposedMove === 'right') {
-            $snakesHead['x']++;
+            $snakesHead = new Point($move->you->head->x + 1, $move->you->head->y);
         }
+
         if ($proposedMove === 'down') {
-            $snakesHead['y']--;
+            $snakesHead = new Point($move->you->head->x, $move->you->head->y - 1);
         }
+
         if ($proposedMove === 'left') {
-            $snakesHead['x']--;
+            $snakesHead = new Point($move->you->head->x - 1, $move->you->head->y);
         }
 
-        if ($snakesHead['x'] < 0 || $snakesHead['y'] < 0) {
+        if (!$snakesHead) {
             return false;
         }
 
-        if ($snakesHead['x'] === $postedData['board']['width'] || $snakesHead['y'] === $postedData['board']['height']) {
+        /**
+         * Check if we're trying to move off the edge of the board
+         */
+        if ($snakesHead->x < 0 || $snakesHead->y < 0) {
+            return false;
+        }
+        if ($snakesHead->x === $move->board->width || $snakesHead->y === $move->board->height) {
             return false;
         }
 
-        foreach ($postedData['board']['snakes'] as $snake) {
-            foreach ($snake['body'] as $body) {
-                if($snakesHead === $body) {
+        /**
+         * Check we're not going to run into any other sneks
+         */
+        foreach ($move->board->snakes as $snake) {
+            foreach ($snake->body as $point) {
+                if ($snakesHead == $point) {
                     return false;
                 }
             }
         }
 
         return true;
+    }
+
+    private function figureOutMoveToFood(Move $move): string
+    {
+        $food = $move->board->food[0];
+        $distanceOnX = $food->x - $move->you->head->x;
+        $distanceOnY = $food->y - $move->you->head->y;
+
+        if ($distanceOnX !== 0) {
+            return ($distanceOnX > 0) ? 'right' : 'left';
+        }
+
+        return ($distanceOnY > 0) ? 'up' : 'down';
     }
 }

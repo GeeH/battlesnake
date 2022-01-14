@@ -1,0 +1,103 @@
+{
+    "game": {
+        "id": "8bfee850-c302-4ead-bd2e-851578187b5e",
+        "ruleset": {
+            "name": "solo",
+            "version": "v1.0.23",
+            "settings": {
+                "foodSpawnChance": 0,
+                "minimumFood": 0,
+                "hazardDamagePerTurn": 0,
+                "royale": {
+                    "shrinkEveryNTurns": 0
+                },
+                "squad": {
+                    "allowBodyCollisions": false,
+                    "sharedElimination": false,
+                    "sharedHealth": false,
+                    "sharedLength": false
+                }
+            }
+        },
+        "timeout": 500,
+        "source": "challenge"
+    },
+    "turn": 0,
+    "board": {
+        "height": 19,
+        "width": 19,
+        "snakes": [
+            {
+                "id": "gs_4QKBDjS9VH4fSjHBx6xM7fj4",
+                "name": "follow-geehlive-on-twitch-v3-real",
+                "latency": "",
+                "health": 100,
+                "body": [
+                    {
+                        "x": 1,
+                        "y": 1
+                    },
+                    {
+                        "x": 1,
+                        "y": 1
+                    },
+                    {
+                        "x": 1,
+                        "y": 1
+                    }
+                ],
+                "head": {
+                    "x": 1,
+                    "y": 1
+                },
+                "length": 3,
+                "shout": "",
+                "squad": "",
+                "customizations": {
+                    "color": "#888888",
+                    "head": "default",
+                    "tail": "default"
+                }
+            }
+        ],
+        "food": [
+            {
+                "x": 17,
+                "y": 17
+            }
+        ],
+        "hazards": []
+    },
+    "you": {
+        "id": "gs_4QKBDjS9VH4fSjHBx6xM7fj4",
+        "name": "follow-geehlive-on-twitch-v3-real",
+        "latency": "",
+        "health": 100,
+        "body": [
+            {
+                "x": 1,
+                "y": 1
+            },
+            {
+                "x": 1,
+                "y": 1
+            },
+            {
+                "x": 1,
+                "y": 1
+            }
+        ],
+        "head": {
+            "x": 1,
+            "y": 1
+        },
+        "length": 3,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+            "color": "#888888",
+            "head": "default",
+            "tail": "default"
+        }
+    }
+}

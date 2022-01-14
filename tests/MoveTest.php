@@ -3,21 +3,24 @@
 
 test(
     'figures out the right way for a 🐍 to move',
-    function ($postedData, $expectedResult) {
+    function (string $postedData, string $expectedResult) {
         $logger = new \Monolog\Logger('test');
         $moveHandler = new \App\Handler\MoveHandler($logger);
 
-        $this->assertSame($expectedResult, $moveHandler->figureOutMove($postedData));
+        $move = \App\Factory\MoveFactory::create($postedData);
+        $this->assertSame($expectedResult, $moveHandler->figureOutMove($move));
     }
 )->with([
-            [
-                json_decode(\file_get_contents(__DIR__ . '/assets/board-1.json'), true),
-                'right',
-            ],
-            [
-                json_decode(file_get_contents(__DIR__ . '/assets/board-2.json'), true),
-                'down',
-            ]
-
-
-        ]);
+    [
+        \file_get_contents(__DIR__.'/assets/board-1.json'),
+        'right',
+    ],
+    [
+        \file_get_contents(__DIR__.'/assets/board-2.json'),
+        'down',
+    ],
+    [
+        \file_get_contents(__DIR__.'/assets/board-3.json'),
+        'right',
+    ],
+]);
