@@ -23,4 +23,12 @@ test(
         \file_get_contents(__DIR__.'/assets/board-3.json'),
         'right',
     ],
+    [
+        \file_get_contents(__DIR__.'/assets/board-4.json'),
+        'left',
+    ],
+    [
+        \file_get_contents(__DIR__.'/assets/board-5.json'),
+        'right',
+    ],
 ]);

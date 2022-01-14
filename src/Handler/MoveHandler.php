@@ -39,33 +39,47 @@ class MoveHandler implements RequestHandlerInterface
         return $response;
     }
 
-    /**
-     * @todo this can infinite loop - make it so it can't
-     */
-    public function figureOutMove(Move $move, string $proposedInstruction = null): string
+
+    public function figureOutMove(Move $move): string
     {
         if (empty($move->board->food)) {
-            $proposedInstruction ??= $move->you->shout ?: 'up';
-
-            if ($this->canMoveToProposedSpace($proposedInstruction, $move)) {
-                return $proposedInstruction;
-            }
-
-            $proposedInstruction = match ($proposedInstruction) {
-                'up' => 'right',
-                'right' => 'down',
-                'down' => 'left',
-                'left' => 'up',
-            };
-
-            return $this->figureOutMove($move, $proposedInstruction);
+            return $this->holdingPattern($move);
         }
 
         return $this->figureOutMoveToFood($move);
     }
 
-    private function canMoveToProposedSpace(string $proposedMove, Move $move): bool
+    /**
+     * @todo this can infinite loop - make it so it can't
+     */
+    public function holdingPattern(Move $move, string|null $proposedInstruction = null): string
     {
+        // if I turn right there's 3 space I can move into, if I turn left, there's 24 so turn right.
+        $proposedInstruction ??= $move->you->shout ?: 'up';
+
+        if ($this->canMoveToProposedSpace($move, $proposedInstruction)) {
+            return $proposedInstruction;
+        }
+
+        $proposedInstruction = match ($proposedInstruction) {
+            'up' => 'right',
+            'right' => 'down',
+            'down' => 'left',
+            'left' => 'up',
+        };
+
+        return $this->holdingPattern($move, $proposedInstruction);
+    }
+
+    private function canMoveToProposedSpace(Move $move, string $proposedMove): bool
+    {
+        /**
+         * @todo write this method - EZ MODE!!!!!
+         */
+//        if ($this->deadEnded($move, $proposedMove)) {
+//            return false;
+//        }
+
         // felisbinarius: $snakesHead = new Point( Match...., Match ...)
         if ($proposedMove === 'up') {
             $snakesHead = new Point($move->you->head->x, $move->you->head->y + 1);
@@ -111,16 +125,30 @@ class MoveHandler implements RequestHandlerInterface
         return true;
     }
 
-    private function figureOutMoveToFood(Move $move): string
+    private function figureOutMoveToFood(Move $move, int $foodIndex = 0): string
     {
-        $food = $move->board->food[0];
+        /**
+         * We can't get to any food, do a holding pattern move for this turn
+         */
+        if ($foodIndex === count($move->board->food)) {
+            return $this->holdingPattern($move);
+        }
+
+        $food = $move->board->food[$foodIndex];
+
         $distanceOnX = $food->x - $move->you->head->x;
         $distanceOnY = $food->y - $move->you->head->y;
 
+        $proposedMove = ($distanceOnY > 0) ? 'up' : 'down';
+
         if ($distanceOnX !== 0) {
-            return ($distanceOnX > 0) ? 'right' : 'left';
+            $proposedMove = ($distanceOnX > 0) ? 'right' : 'left';
         }
 
-        return ($distanceOnY > 0) ? 'up' : 'down';
+        if ($this->canMoveToProposedSpace($move, $proposedMove)) {
+            return $proposedMove;
+        }
+
+        return $this->figureOutMoveToFood($move, $foodIndex + 1);
     }
 }
