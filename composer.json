@@ -2,7 +2,9 @@
     "name": "akrabat/slim4-starter",
     "description": "Starter Slim 4 project",
     "keywords": [
-        "slim", "slim framwork", "psr7"
+        "slim",
+        "slim framwork",
+        "psr7"
     ],
     "homepage": "http://github.com/akrabat/slim4-starter",
     "type": "project",
@@ -14,6 +16,10 @@
             "homepage": "https://akrabat.com"
         }
     ],
+    "scripts": {
+        "serve": "php -S 0.0.0.0:8888 -t public/",
+        "test": "php -S 0.0.0.0:8888 -t public/"
+    },
     "config": {
         "optimize-autoloader": true,
         "sort-packages": true
@@ -25,12 +31,13 @@
     },
     "require": {
         "cuyz/valinor": "^0.4.0",
+        "larapack/dd": "^1.1",
         "monolog/monolog": "^2.3",
         "php-di/php-di": "^6.3",
         "slim/psr7": "^1.4",
-        "slim/slim": "^4.8"
-    }
-    ,
+        "slim/slim": "^4.8",
+        "twig/twig": "^3.3"
+    },
     "require-dev": {
         "pestphp/pest": "^1.21",
         "roave/security-advisories": "dev-master"

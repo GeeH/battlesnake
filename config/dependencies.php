@@ -12,7 +12,6 @@ use Psr\Log\LoggerInterface;
 return static function (ContainerBuilder $containerBuilder, array $settings) {
     $containerBuilder->addDefinitions([
         'settings' => $settings,
-
         LoggerInterface::class => function (ContainerInterface $c) {
             $settings = $c->get('settings');
 

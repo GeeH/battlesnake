@@ -1,0 +1,127 @@
+{
+    "game": {
+        "id": "7de89932-6b2e-4c84-9568-30aad964f8da",
+        "ruleset": {
+            "name": "solo",
+            "version": "v1.0.23",
+            "settings": {
+                "foodSpawnChance": 15,
+                "minimumFood": 1,
+                "hazardDamagePerTurn": 0,
+                "royale": {
+                    "shrinkEveryNTurns": 0
+                },
+                "squad": {
+                    "allowBodyCollisions": false,
+                    "sharedElimination": false,
+                    "sharedHealth": false,
+                    "sharedLength": false
+                }
+            }
+        },
+        "timeout": 500,
+        "source": "challenge"
+    },
+    "turn": 16,
+    "board": {
+        "height": 7,
+        "width": 7,
+        "snakes": [
+            {
+                "id": "gs_yXyD8m87DGkCK7ydq7KMbjSB",
+                "name": "follow-geehlive-on-twitch-v3-real",
+                "latency": "144",
+                "health": 95,
+                "body": [
+                    {
+                        "x": 0,
+                        "y": 0
+                    },
+                    {
+                        "x": 1,
+                        "y": 0
+                    },
+                    {
+                        "x": 2,
+                        "y": 0
+                    },
+                    {
+                        "x": 3,
+                        "y": 0
+                    }
+                ],
+                "head": {
+                    "x": 0,
+                    "y": 0
+                },
+                "length": 4,
+                "shout": "",
+                "squad": "",
+                "customizations": {
+                    "color": "#ff0000",
+                    "head": "safe",
+                    "tail": "freckled"
+                }
+            }
+        ],
+        "food": [
+            {
+                "x": 4,
+                "y": 4
+            },
+            {
+                "x": 3,
+                "y": 3
+            },
+            {
+                "x": 4,
+                "y": 5
+            },
+            {
+                "x": 6,
+                "y": 6
+            },
+            {
+                "x": 3,
+                "y": 2
+            }
+        ],
+        "hazards": []
+    },
+    "you": {
+        "id": "gs_yXyD8m87DGkCK7ydq7KMbjSB",
+        "name": "follow-geehlive-on-twitch-v3-real",
+        "latency": "144",
+        "health": 95,
+        "body": [
+            {
+                "x": 0,
+                "y": 0
+            },
+            {
+                "x": 1,
+                "y": 0
+            },
+            {
+                "x": 2,
+                "y": 0
+            },
+            {
+                "x": 3,
+                "y": 0
+            }
+        ],
+        "head": {
+            "x": 0,
+            "y": 0
+        },
+        "length": 4,
+        "shout": "",
+        "squad": "",
+        "customizations": {
+            "color": "#ff0000",
+            "head": "safe",
+            "tail": "freckled"
+        }
+    }
+}

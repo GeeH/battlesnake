@@ -1,0 +1,287 @@
+{
+    "game": {
+        "id": "df346ae7-e028-4aa0-9894-4ae09e5ddb83",
+        "ruleset": {
+            "name": "standard",
+            "version": "v1.0.25",
+            "settings": {
+                "foodSpawnChance": 15,
+                "minimumFood": 1,
+                "hazardDamagePerTurn": 0,
+                "royale": {
+                    "shrinkEveryNTurns": 0
+                },
+                "squad": {
+                    "allowBodyCollisions": false,
+                    "sharedElimination": false,
+                    "sharedHealth": false,
+                    "sharedLength": false
+                }
+            }
+        },
+        "timeout": 500,
+        "source": "custom"
+    },
+    "turn": 103,
+    "board": {
+        "height": 19,
+        "width": 19,
+        "snakes": [
+            {
+                "id": "gs_4mD3QMTGgfCSP6DHfWkbpRH6",
+                "name": "follow-geehlive-on-twitch-v3-real",
+                "latency": "152",
+                "health": 32,
+                "body": [
+                    {
+                        "x": 0,
+                        "y": 5
+                    },
+                    {
+                        "x": 0,
+                        "y": 6
+                    },
+                    {
+                        "x": 0,
+                        "y": 7
+                    },
+                    {
+                        "x": 0,
+                        "y": 8
+                    },
+                    {
+                        "x": 0,
+                        "y": 9
+                    },
+                    {
+                        "x": 0,
+                        "y": 10
+                    }
+                ],
+                "head": {
+                    "x": 0,
+                    "y": 5
+                },
+                "length": 6,
+                "shout": "down",
+                "squad": "",
+                "customizations": {
+                    "color": "#ff0000",
+                    "head": "safe",
+                    "tail": "freckled"
+                }
+            },
+            {
+                "id": "gs_9h338p7fbGgWctxS8vJFGX87",
+                "name": "blockzilla",
+                "latency": "223",
+                "health": 73,
+                "body": [
+                    {
+                        "x": 17,
+                        "y": 12
+                    },
+                    {
+                        "x": 17,
+                        "y": 11
+                    },
+                    {
+                        "x": 17,
+                        "y": 10
+                    },
+                    {
+                        "x": 17,
+                        "y": 9
+                    },
+                    {
+                        "x": 17,
+                        "y": 8
+                    },
+                    {
+                        "x": 17,
+                        "y": 7
+                    }
+                ],
+                "head": {
+                    "x": 17,
+                    "y": 12
+                },
+                "length": 6,
+                "shout": "blockzilla",
+                "squad": "",
+                "customizations": {
+                    "color": "#00ff00",
+                    "head": "mask",
+                    "tail": "virus"
+                }
+            },
+            {
+                "id": "gs_JCkQwkDyQj3jW4wWDVWRMxBR",
+                "name": "Nessegrev-NightlyBuild",
+                "latency": "311",
+                "health": 90,
+                "body": [
+                    {
+                        "x": 1,
+                        "y": 6
+                    },
+                    {
+                        "x": 1,
+                        "y": 5
+                    },
+                    {
+                        "x": 1,
+                        "y": 4
+                    },
+                    {
+                        "x": 0,
+                        "y": 4
+                    },
+                    {
+                        "x": 0,
+                        "y": 3
+                    },
+                    {
+                        "x": 0,
+                        "y": 2
+                    },
+                    {
+                        "x": 1,
+                        "y": 2
+                    },
+                    {
+                        "x": 1,
+                        "y": 3
+                    },
+                    {
+                        "x": 2,
+                        "y": 3
+                    },
+                    {
+                        "x": 2,
+                        "y": 2
+                    },
+                    {
+                        "x": 2,
+                        "y": 1
+                    },
+                    {
+                        "x": 3,
+                        "y": 1
+                    },
+                    {
+                        "x": 4,
+                        "y": 1
+                    },
+                    {
+                        "x": 4,
+                        "y": 2
+                    },
+                    {
+                        "x": 5,
+                        "y": 2
+                    },
+                    {
+                        "x": 6,
+                        "y": 2
+                    }
+                ],
+                "head": {
+                    "x": 1,
+                    "y": 6
+                },
+                "length": 16,
+                "shout": "",
+                "squad": "",
+                "customizations": {
+                    "color": "#212161",
+                    "head": "all-seeing",
+                    "tail": "default"
+                }
+            }
+        ],
+        "food": [
+            {
+                "x": 0,
+                "y": 0
+            },
+            {
+                "x": 0,
+                "y": 16
+            },
+            {
+                "x": 1,
+                "y": 15
+            },
+            {
+                "x": 14,
+                "y": 15
+            },
+            {
+                "x": 7,
+                "y": 9
+            },
+            {
+                "x": 1,
+                "y": 11
+            },
+            {
+                "x": 5,
+                "y": 16
+            },
+            {
+                "x": 2,
+                "y": 14
+            },
+            {
+                "x": 9,
+                "y": 1
+            }
+        ],
+        "hazards": []
+    },
+    "you": {
+        "id": "gs_4mD3QMTGgfCSP6DHfWkbpRH6",
+        "name": "follow-geehlive-on-twitch-v3-real",
+        "latency": "152",
+        "health": 32,
+        "body": [
+            {
+                "x": 0,
+                "y": 5
+            },
+            {
+                "x": 0,
+                "y": 6
+            },
+            {
+                "x": 0,
+                "y": 7
+            },
+            {
+                "x": 0,
+                "y": 8
+            },
+            {
+                "x": 0,
+                "y": 9
+            },
+            {
+                "x": 0,
+                "y": 10
+            }
+        ],
+        "head": {
+            "x": 0,
+            "y": 5
+        },
+        "length": 6,
+        "shout": "down",
+        "squad": "",
+        "customizations": {
+            "color": "#ff0000",
+            "head": "safe",
+            "tail": "freckled"
+        }
+    }
+}

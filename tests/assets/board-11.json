@@ -1,0 +1,199 @@
+{
+    "game": {
+        "id": "82fe0d78-ba4d-4780-8004-2ffb57204c73",
+        "ruleset": {
+            "name": "solo",
+            "version": "v1.0.25",
+            "settings": {
+                "foodSpawnChance": 15,
+                "minimumFood": 1,
+                "hazardDamagePerTurn": 0,
+                "royale": {
+                    "shrinkEveryNTurns": 0
+                },
+                "squad": {
+                    "allowBodyCollisions": false,
+                    "sharedElimination": false,
+                    "sharedHealth": false,
+                    "sharedLength": false
+                }
+            }
+        },
+        "timeout": 500,
+        "source": "challenge"
+    },
+    "turn": 133,
+    "board": {
+        "height": 7,
+        "width": 7,
+        "snakes": [
+            {
+                "id": "gs_mDKqhTgWbmfVfYxfFV3yCtPT",
+                "name": "Try it and Snake",
+                "latency": "150",
+                "health": 92,
+                "body": [
+                    {
+                        "x": 5,
+                        "y": 6
+                    },
+                    {
+                        "x": 5,
+                        "y": 5
+                    },
+                    {
+                        "x": 5,
+                        "y": 4
+                    },
+                    {
+                        "x": 5,
+                        "y": 3
+                    },
+                    {
+                        "x": 5,
+                        "y": 2
+                    },
+                    {
+                        "x": 5,
+                        "y": 1
+                    },
+                    {
+                        "x": 5,
+                        "y": 0
+                    }
+                ],
+                "head": {
+                    "x": 5,
+                    "y": 6
+                },
+                "length": 7,
+                "shout": "up",
+                "squad": "",
+                "customizations": {
+                    "color": "#ff0000",
+                    "head": "safe",
+                    "tail": "freckled"
+                }
+            }
+        ],
+        "food": [
+            {
+                "x": 1,
+                "y": 2
+            },
+            {
+                "x": 1,
+                "y": 6
+            },
+            {
+                "x": 0,
+                "y": 3
+            },
+            {
+                "x": 4,
+                "y": 4
+            },
+            {
+                "x": 1,
+                "y": 5
+            },
+            {
+                "x": 0,
+                "y": 5
+            },
+            {
+                "x": 2,
+                "y": 0
+            },
+            {
+                "x": 2,
+                "y": 4
+            },
+            {
+                "x": 3,
+                "y": 1
+            },
+            {
+                "x": 1,
+                "y": 0
+            },
+            {
+                "x": 2,
+                "y": 1
+            },
+            {
+                "x": 2,
+                "y": 2
+            },
+            {
+                "x": 2,
+                "y": 6
+            },
+            {
+                "x": 0,
+                "y": 6
+            },
+            {
+                "x": 3,
+                "y": 6
+            },
+            {
+                "x": 4,
+                "y": 0
+            },
+            {
+                "x": 0,
+                "y": 4
+            }
+        ],
+        "hazards": []
+    },
+    "you": {
+        "id": "gs_mDKqhTgWbmfVfYxfFV3yCtPT",
+        "name": "Try it and Snake",
+        "latency": "150",
+        "health": 92,
+        "body": [
+            {
+                "x": 5,
+                "y": 6
+            },
+            {
+                "x": 5,
+                "y": 5
+            },
+            {
+                "x": 5,
+                "y": 4
+            },
+            {
+                "x": 5,
+                "y": 3
+            },
+            {
+                "x": 5,
+                "y": 2
+            },
+            {
+                "x": 5,
+                "y": 1
+            },
+            {
+                "x": 5,
+                "y": 0
+            }
+        ],
+        "head": {
+            "x": 5,
+            "y": 6
+        },
+        "length": 7,
+        "shout": "up",
+        "squad": "",
+        "customizations": {
+            "color": "#ff0000",
+            "head": "safe",
+            "tail": "freckled"
+        }
+    }
+}

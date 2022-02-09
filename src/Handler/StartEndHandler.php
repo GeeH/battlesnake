@@ -22,6 +22,17 @@ class StartEndHandler implements RequestHandlerInterface
     public function handle(ServerRequestInterface $request): ResponseInterface
     {
         $this->logger->info('Start/End handler dispatched');
-        return new Response();
+        $response = new Response();
+        $response->getBody()->write(
+            json_encode([
+                'apiVersion' => '1',
+                'author' => 'GeeH',
+                'color' => '#FF0000',
+                'head' => 'safe',
+                'tail' => 'freckled',
+                'version' => 'pre-alpha',
+            ])
+        );
+        return $response;
     }
 }

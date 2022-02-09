@@ -20,9 +20,9 @@ class HomePageHandler implements RequestHandlerInterface
         $this->snek = [
             'apiversion' => '1',
             'author' => 'GeeH',
-            'color' => '#888888',
-            'head' => 'default',
-            'tail' => 'default',
+            'color' => '#FF0000',
+            'head' => 'safe',
+            'tail' => 'freckled',
             'version' => 'v3-final',
         ];
     }

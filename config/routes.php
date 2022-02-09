@@ -10,4 +10,7 @@ return function (App $app) {
     $app->post('/start', Handler\StartEndHandler::class)->setName('start');
     $app->post('/end', Handler\StartEndHandler::class)->setName('end');
     $app->post('/move', Handler\MoveHandler::class)->setName('move');
+
+    $app->get('/board', Handler\BoardHandler::class)->setName('board');
+    $app->post('/board', [Handler\BoardHandler::class, 'render'])->setName('board');
 };
