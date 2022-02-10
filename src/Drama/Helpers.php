@@ -63,10 +63,6 @@ class Helpers
             $snakesHead = $snakesHead->moveLeft();
         }
 
-        if (!$snakesHead) {
-            return false;
-        }
-
         /**
          * Check if we're trying to move off the edge of the board
          */

@@ -7,7 +7,7 @@ use Monolog\Logger;
 return static function(string $appEnv) {
     $settings =  [
         'app_env' => $appEnv,
-        'di_compilation_path' => __DIR__ . '/../var/cache',
+        'di_compilation_path' => '/tmp',
         'display_error_details' => false,
         'log_errors' => true,
 
@@ -22,7 +22,7 @@ return static function(string $appEnv) {
         // Overrides for development mode
         $settings['di_compilation_path'] = '';
         $settings['display_error_details'] = true;
-        $settings['logger']['path'] = __DIR__ . '/../var/log/app.log';
+        $settings['logger']['path'] =  __DIR__ . '/../var/log/app.log';
     }
 
     return $settings;

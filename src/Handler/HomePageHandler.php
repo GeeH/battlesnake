@@ -13,6 +13,7 @@ use Slim\Psr7\Response;
 class HomePageHandler implements RequestHandlerInterface
 {
     private LoggerInterface $logger;
+    private array $snek;
 
     public function __construct(LoggerInterface $logger)
     {

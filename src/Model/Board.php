@@ -26,7 +26,10 @@ class Board
 
         foreach ($board['snakes'] as $index => $snake) {
             $snake = (array)$snake;
-            foreach ($snake['body'] as $i => $point) {
+            foreach (
+                $snake['body'] as
+                $i => $point
+            ) {
                 $snake['body'][$i] = [$point->x, $point->y];
             }
             $snake['head'] = [$snake['head']->x, $snake['head']->y];
