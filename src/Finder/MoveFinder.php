@@ -6,7 +6,6 @@ namespace App\Finder;
 
 use App\Model\Config;
 use App\Model\Move;
-use App\Model\Point;
 use App\Model\ProposedMove;
 
 /** The Class Formerly Known as Crisps */
@@ -29,22 +28,34 @@ final class MoveFinder
     public function figureOutMove(): string
     {
         $validMoves = [self::UP, self::RIGHT, self::DOWN, self::LEFT];
-
+        $weightedMoves = [];
         // felisbinarius: $validMoves += array_map([$this, 'getMoveWeight'], $valueMoves);
         foreach ($validMoves as $direction) {
-            $validMoves[$direction] = $this->getMoveWeight($direction);
+            $weightedMoves[] = $this->getMoveWeight($direction);
         }
 
-        return self::UP;
+        usort($weightedMoves, static function (ProposedMove $move1, ProposedMove $move2): int {
+            return $move2->weight <=> $move1->weight;
+        });
+
+        $bestMove =  array_shift($weightedMoves);
+        return $bestMove->direction;
+
     }
 
     private function getMoveWeight(string $direction): ProposedMove
     {
         // felisbinarius: return array_sum([ $this->addWeightForFood($direction, new ProposedMove($direction)),  ]);
-//        $proposedMove = $this->addWeightForFood(new ProposedMove($direction));
+        // if the space in this direction has food in it, add the weight otherwise don't
+        //        $proposedMove = $this->addWeightForFood(new ProposedMove($direction));
+        $moveDirectionMethod = 'move'.ucfirst($direction);
+        $proposedMove = new ProposedMove(
+            $direction,
+            $this->move->you->head->{$moveDirectionMethod}()
+        );
 
-        $proposedMove = new ProposedMove($direction);
-        if($this->collides($proposedMove)) {
+
+        if ($this->collidesWithWall($proposedMove) || $this->collidesWithSnake($proposedMove)) {
             $proposedMove->weight = -1;
             return $proposedMove;
         }
@@ -53,9 +64,24 @@ final class MoveFinder
         return $proposedMove;
     }
 
+    private function collidesWithWall(ProposedMove $proposedMove): bool
+    {
+        /**
+         * Check if we're trying to move off the edge of the board
+         */
+        if ($proposedMove->newHeadPoint->x < 0 || $proposedMove->newHeadPoint->y < 0) {
+            return true;
+        }
+        if ($proposedMove->newHeadPoint->x === $this->move->board->width
+            || $proposedMove->newHeadPoint->y === $this->move->board->height) {
+            return true;
+        }
+        return false;
+    }
+
     private function addWeightForFood(ProposedMove $proposedMove): ProposedMove
     {
-        if($this->move->you->health > $this->config->healthBeforeFindingFood) {
+        if ($this->move->you->health > $this->config->healthBeforeFindingFood) {
             // we need to consider how we adjust the weighting if there is food on the square
             // in this direction. Do we actively avoid food until we need it?
             // Do we gobble food if we're smaller than our opponent
@@ -66,12 +92,8 @@ final class MoveFinder
 
         // moveUp etc
         // felisbinarius: lets move this move method generation to a move method on the point class
-        $moveDirectionMethod = 'move' . ucfirst($proposedMove->direction);
 
-        // if the space in this direction has food in it, add the weight otherwise don't
-        /** @var Point $newHeadPoint */
-        $newHeadPoint = $this->move->you->head->{$moveDirectionMethod}();
-        foreach($this->move->board->food as $foodPoint) {
+        foreach ($this->move->board->food as $foodPoint) {
             if ($newHeadPoint->equals($foodPoint)) {
                 $proposedMove->food = 100;
                 $proposedMove->weight += 100 * $this->config->foodPriority;
@@ -81,10 +103,8 @@ final class MoveFinder
         return $proposedMove;
     }
 
-    private function collidesWithWall(ProposedMove $proposedMove): bool
+    private function collidesWithSnake(ProposedMove $proposedMove)
     {
-
-        return false;
     }
 
 }

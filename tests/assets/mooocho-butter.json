@@ -1,0 +1,107 @@
+{
+    "game": {
+        "id": "d8852a34-a824-414b-9320-5e1329e16bea",
+        "ruleset": {
+            "name": "solo",
+            "version": "v1.0.25",
+            "settings": {
+                "foodSpawnChance": 15,
+                "minimumFood": 1,
+                "hazardDamagePerTurn": 0,
+                "royale": {
+                    "shrinkEveryNTurns": 0
+                },
+                "squad": {
+                    "allowBodyCollisions": false,
+                    "sharedElimination": false,
+                    "sharedHealth": false,
+                    "sharedLength": false
+                }
+            }
+        },
+        "timeout": 500,
+        "source": "challenge"
+    },
+    "turn": 3,
+    "board": {
+        "height": 7,
+        "width": 7,
+        "snakes": [
+            {
+                "id": "gs_yg98Hdxg6S46QfQ7cJvWCWJ8",
+                "name": "Try it and Snake (Dev)",
+                "latency": "234",
+                "health": 97,
+                "body": [
+                    {
+                        "x": 5,
+                        "y": 6
+                    },
+                    {
+                        "x": 5,
+                        "y": 5
+                    },
+                    {
+                        "x": 5,
+                        "y": 4
+                    }
+                ],
+                "head": {
+                    "x": 5,
+                    "y": 6
+                },
+                "length": 3,
+                "shout": "up",
+                "squad": "",
+                "customizations": {
+                    "color": "#ff0000",
+                    "head": "safe",
+                    "tail": "freckled"
+                }
+            }
+        ],
+        "food": [
+            {
+                "x": 6,
+                "y": 4
+            },
+            {
+                "x": 3,
+                "y": 3
+            }
+        ],
+        "hazards": []
+    },
+    "you": {
+        "id": "gs_yg98Hdxg6S46QfQ7cJvWCWJ8",
+        "name": "Try it and Snake (Dev)",
+        "latency": "234",
+        "health": 97,
+        "body": [
+            {
+                "x": 5,
+                "y": 6
+            },
+            {
+                "x": 5,
+                "y": 5
+            },
+            {
+                "x": 5,
+                "y": 4
+            }
+        ],
+        "head": {
+            "x": 5,
+            "y": 6
+        },
+        "length": 3,
+        "shout": "up",
+        "squad": "",
+        "customizations": {
+            "color": "#ff0000",
+            "head": "safe",
+            "tail": "freckled"
+        }
+    }
+}
