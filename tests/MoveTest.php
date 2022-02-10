@@ -22,11 +22,11 @@ test(
         'right',
         'go-right-at-top-wall'
     ],
-//    [
-//        \file_get_contents(__DIR__.'/assets/board-2.json'),
-//        'down',
-//        'board-2'
-//    ],
+    [
+        \file_get_contents(__DIR__.'/assets/board-1.json'),
+        'right',
+        'go-right-to-avoid-snakes'
+    ],
 //    [
 //        \file_get_contents(__DIR__.'/assets/board-3.json'),
 //        'up',

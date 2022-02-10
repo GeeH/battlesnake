@@ -103,8 +103,16 @@ final class MoveFinder
         return $proposedMove;
     }
 
-    private function collidesWithSnake(ProposedMove $proposedMove)
+    private function collidesWithSnake(ProposedMove $proposedMove): bool
     {
+        foreach ($this->move->board->snakes as $snake) {
+            foreach ($snake->body as $point) {
+                if ($proposedMove->newHeadPoint->equals($point)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 }
